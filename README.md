@@ -2,8 +2,6 @@
 
 ECE C247 Winter 2021 w/ Jonathan Kao
 
-Andy Cai, Stephanie Doan, Michael Inoue, Henry Trinh
-
 ## Setup
 
 ### Dataset
