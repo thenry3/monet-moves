@@ -1,6 +1,8 @@
 # Van Gogh, but with GAN
 
-https://www.kaggle.com/ipythonx/van-gogh-paintings
+ECE C247 Winter 2021 w/ Jonathan Kao
+
+Andy Cai, Stephanie Doan, Michael Inoue, Henry Trinh
 
 ## Setup
 
