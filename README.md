@@ -28,7 +28,7 @@ Install dependencies
 pip3 install -r requirements.txt
 ```
 
-Download dependencies  
+Save dependencies
 ```
 pip3 freeze > requirements.txt
 ```
@@ -39,4 +39,4 @@ deactivate
 ```
 
 ### Dataset
-Install [Kaggle dataset](https://www.kaggle.com/ipythonx/van-gogh-paintings) and put into `/data` folder.
+Download [Kaggle dataset](https://www.kaggle.com/ipythonx/van-gogh-paintings) and put into `/data` folder.
