@@ -9,10 +9,14 @@ Andy Cai, Stephanie Doan, Michael Inoue, Henry Trinh
 ### Virtual Environment
 
 Install virtualenv
-```pip3 install virtualenv```
+```
+pip3 install virtualenv
+```
 
 Create virtualenv
-```python3 -m virtualenv env``` 
+```
+python3 -m virtualenv env
+``` 
 
 Activate
 ```
@@ -20,13 +24,19 @@ source env/bin/activate
 ```
 
 Install dependencies
-```pip3 install -r requirements.txt```
+```
+pip3 install -r requirements.txt
+```
 
 Save dependencies  
-```pip3 freeze > requirements.txt```
+```
+pip3 freeze > requirements.txt
+```
 
 Deactivate 
-```deactivate```
+```
+deactivate
+```
 
 ### Dataset
 Install [Kaggle dataset](https://www.kaggle.com/ipythonx/van-gogh-paintings) and put into `/data` folder.
