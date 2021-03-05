@@ -2,40 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-# latent_size = 256 * 256
-
-# generator = nn.Sequential(
-#     # in: latent_size x 1 x 1
-
-#     nn.Conv2d(3, 512, kernel_size=4,
-#                        stride=1, padding=0, bias=False),
-#     nn.BatchNorm2d(512),
-#     nn.ReLU(True),
-#     # out: 512 x 4 x 4
-
-#     nn.Conv2d(512, 256, kernel_size=4,
-#                        stride=2, padding=1, bias=False),
-#     nn.BatchNorm2d(256),
-#     nn.ReLU(True),
-#     # out: 256 x 8 x 8
-
-#     nn.Conv2d(256, 128, kernel_size=4,
-#                        stride=2, padding=1, bias=False),
-#     nn.BatchNorm2d(128),
-#     nn.ReLU(True),
-#     # out: 128 x 16 x 16
-
-#     nn.Conv2d(128, 64, kernel_size=4,
-#                        stride=2, padding=1, bias=False),
-#     nn.BatchNorm2d(64),
-#     nn.ReLU(True),
-#     # out: 64 x 32 x 32
-
-#     nn.Conv2d(64, 3, kernel_size=4, stride=2, padding=1, bias=False),
-#     nn.Tanh()
-#     # out: 3 x 64 x 64
-# )
-
 class Generator(nn.Module):
     def __init__(self):
         super(Generator, self).__init__()
