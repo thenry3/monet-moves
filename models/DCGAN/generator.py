@@ -4,36 +4,32 @@ import torch.nn.functional as F
 from .constants import *
 
 class Generator(nn.Module):
-    def __init__(self):
+    def __init__(self, ngpu):
         super(Generator, self).__init__()
+        self.ngpu = ngpu
+        self.main = nn.Sequential(
+            # input is Z, going into a convolution
+            nn.ConvTranspose2d( nz, ngf * 8, 4, 1, 0, bias=False),
+            nn.BatchNorm2d(ngf * 8),
+            nn.ReLU(True),
+            # state size. (ngf*8) x 4 x 4
+            nn.ConvTranspose2d(ngf * 8, ngf * 4, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(ngf * 4),
+            nn.ReLU(True),
+            # state size. (ngf*4) x 8 x 8
+            nn.ConvTranspose2d( ngf * 4, ngf * 2, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(ngf * 2),
+            nn.ReLU(True),
+            # state size. (ngf*2) x 16 x 16
+            nn.ConvTranspose2d( ngf * 2, ngf, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(ngf),
+            nn.ReLU(True),
+            # state size. (ngf) x 32 x 32
+            nn.ConvTranspose2d( ngf, nc, 4, 2, 1, bias=False),
+            nn.Tanh()
+            # state size. (nc) x 64 x 64
+        )
 
-        self.conv1 = nn.Conv2d(3, 512, kernel_size=4,
-                       stride=1, padding=0, bias=False)
-        self.bnorm1 = nn.BatchNorm2d(512)
-
-        self.conv2 = nn.Conv2d(512, 256, kernel_size=4,
-                       stride=2, padding=1, bias=False)
-        self.bnorm2 = nn.BatchNorm2d(256)
-
-        self.conv3 = nn.Conv2d(256, 128, kernel_size=4,
-                       stride=2, padding=1, bias=False)
-        self.bnorm3 = nn.BatchNorm2d(128)
-
-        self.conv4 = nn.Conv2d(128, 64, kernel_size=4,
-                       stride=2, padding=1, bias=False)
-        self.bnorm4 = nn.BatchNorm2d(64)
-
-        self.conv5 = nn.Conv2d(64, 3, kernel_size=4, stride=2, padding=1, bias=False),
-        self.tanh = nn.Tanh()
-
-    def forward(self, x):
-        x = self.bnorm1(self.conv1(x))
-        x = F.relu(x)
-        x = self.bnorm2(self.conv2(x))
-        x = F.relu(x)
-        x = self.bnorm3(self.conv3(x))
-        x = F.relu(x)
-        x = self.bnorm4(self.conv4(x))
-        x = F.relu(x)
-        return self.tanh(self.conv5(x))
+    def forward(self, input):
+        return self.main(input)
 
