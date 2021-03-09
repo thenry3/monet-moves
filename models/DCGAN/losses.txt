@@ -1,0 +1,3 @@
+Losses log for DCGAN
+Losses log for DCGAN
+[0/5][0/16]	Loss_D: 0.5473	Loss_G: 1.2469	D(x): 0.7134	D(G(z)): 0.0674 / 0.5563[0/5][0/16]	Loss_D: 1.3847	Loss_G: 4.3507	D(x): 0.6557	D(G(z)): 0.4901 / 0.0171
