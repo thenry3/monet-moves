@@ -79,6 +79,18 @@ class LightningSystem(pl.LightningModule):
             # Loss Weight
             G_loss = val_loss + self.reconstr_w * reconstr_loss + self.id_w * id_loss
 
+            # Write validation loss to log file
+            log_str = ('[%d/%d][%d] \tLoss_val: %.4f' %
+                       (self.step, self.num_epochs, self.cnt_train_step, val_loss))
+            self.f.write(f"{log_str}\n")
+            self.f.flush()
+
+            # Write generator loss to log file
+            log_str = ('[%d/%d][%d] \tLoss_G: %.4f' %
+                       (self.step, self.num_epochs, self.cnt_train_step, G_loss))
+            self.f.write(f"{log_str}\n")
+            self.f.flush()
+
             return {'loss': G_loss, 'validity': val_loss, 'reconstr': reconstr_loss, 'identity': id_loss}
 
         # Train Discriminator
@@ -97,6 +109,12 @@ class LightningSystem(pl.LightningModule):
 
             # Loss Weight
             D_loss = (D_gen_loss + D_base_valid_loss + D_style_valid_loss) / 3
+
+            # Write discriminator loss to log file
+            log_str = ('[%d/%d][%d]\tLoss_D: %.4f' %
+                       (self.step, self.num_epochs, self.cnt_train_step, D_loss))
+            self.f.write(f"{log_str}\n")
+            self.f.flush()
 
             # Count up
             self.cnt_train_step += 1
@@ -127,8 +145,8 @@ class LightningSystem(pl.LightningModule):
         self.identity.append(identity)
 
         # Write epoch loss to log file
-        log_str = ('[%d/%d]\tLoss: %.4f\tLoss_D: %.4f\tLoss_G: %.4f' % (
-            self.step, self.num_epochs, len(dataloader), avg_loss, G_mean_loss, D_mean_loss))
+        log_str = ('[%d/%d]\tLoss: %.4f\tLoss_G: %.4f\tLoss_D: %.4f' % (
+            self.step, self.num_epochs, avg_loss, G_mean_loss, D_mean_loss))
         print(log_str)
         self.f.write(f"{log_str}\n")
         self.f.flush()
