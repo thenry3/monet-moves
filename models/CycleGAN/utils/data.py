@@ -7,6 +7,8 @@ import random
 import shutil
 from PIL import Image
 
+from .constants import *
+
 
 class ImageTransform:
     def __init__(self, img_size=256):
@@ -78,5 +80,6 @@ class MonetDataModule(pl.LightningDataModule):
         return DataLoader(self.train_dataset,
                           batch_size=self.batch_size,
                           shuffle=True,
+                          num_workers=workers,
                           pin_memory=True
                           )

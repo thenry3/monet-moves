@@ -1,13 +1,14 @@
 import pytorch_lightning as pl
 import torch
 from torch import nn, optim
-import optim
 
-# Lightning Module
+from .constants import *
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class LightningSystem(pl.LightningModule):
-    def __init__(self, G_basestyle, G_stylebase, D_base, D_style, lr, transform, reconstr_w=10, id_w=2):
+    def __init__(self, G_basestyle, G_stylebase, D_base, D_style, lr, transform, reconstr_w=10, id_w=2, num_epochs=1):
         super(LightningSystem, self).__init__()
         self.G_basestyle = G_basestyle
         self.G_stylebase = G_stylebase
@@ -30,15 +31,19 @@ class LightningSystem(pl.LightningModule):
         self.reconstr = []
         self.identity = []
 
+        self.num_epochs = num_epochs
+        self.f = open("./../losses.txt", "a")
+        self.f.write("Losses log for CycleGAN\n")
+
     def configure_optimizers(self):
         self.g_basestyle_optimizer = optim.Adam(
-            self.G_basestyle.parameters(), lr=self.lr['G'], betas=(0.5, 0.999))
+            self.G_basestyle.parameters(), lr=self.lr['G'], betas=(beta1, 0.999))
         self.g_stylebase_optimizer = optim.Adam(
-            self.G_stylebase.parameters(), lr=self.lr['G'], betas=(0.5, 0.999))
+            self.G_stylebase.parameters(), lr=self.lr['G'], betas=(beta1, 0.999))
         self.d_base_optimizer = optim.Adam(
-            self.D_base.parameters(), lr=self.lr['D'], betas=(0.5, 0.999))
+            self.D_base.parameters(), lr=self.lr['D'], betas=(beta1, 0.999))
         self.d_style_optimizer = optim.Adam(
-            self.D_style.parameters(), lr=self.lr['D'], betas=(0.5, 0.999))
+            self.D_style.parameters(), lr=self.lr['D'], betas=(beta1, 0.999))
 
         return [self.g_basestyle_optimizer, self.g_stylebase_optimizer, self.d_base_optimizer, self.d_style_optimizer], []
 
@@ -46,8 +51,8 @@ class LightningSystem(pl.LightningModule):
         base_img, style_img = batch
         b = base_img.size()[0]
 
-        valid = torch.ones(b, 1, 30, 30)  # .cuda()
-        fake = torch.zeros(b, 1, 30, 30)  # .cuda()
+        valid = torch.ones(b, 1, 30, 30).to(device)
+        fake = torch.zeros(b, 1, 30, 30).to(device)
 
         # Train Generator
         if optimizer_idx == 0 or optimizer_idx == 1:
@@ -121,6 +126,13 @@ class LightningSystem(pl.LightningModule):
         self.reconstr.append(reconstr)
         self.identity.append(identity)
 
+        # Write epoch loss to log file
+        log_str = ('[%d/%d]\tLoss: %.4f\tLoss_D: %.4f\tLoss_G: %.4f' % (
+            self.step, self.num_epochs, len(dataloader), avg_loss, G_mean_loss, D_mean_loss))
+        print(log_str)
+        self.f.write(f"{log_str}\n")
+        self.f.flush()
+
         if self.step % 10 == 0:
             # Display Model Output
             target_img_paths = glob.glob(
@@ -128,7 +140,7 @@ class LightningSystem(pl.LightningModule):
             target_imgs = [self.transform(Image.open(
                 path), phase='test') for path in target_img_paths]
             target_imgs = torch.stack(target_imgs, dim=0)
-            target_imgs = target_imgs  # .cuda()
+            target_imgs = target_imgs.to(device)
 
             gen_imgs = self.G_basestyle(target_imgs)
             gen_img = torch.cat([target_imgs, gen_imgs], dim=0)
@@ -152,3 +164,6 @@ class LightningSystem(pl.LightningModule):
             plt.close()
 
         return None
+
+    def __exit__(self):
+        self.f.close()

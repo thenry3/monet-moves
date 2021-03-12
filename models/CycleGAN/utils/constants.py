@@ -1,36 +1,30 @@
 # Root directory for dataset
-dataroot = "./../../data"
+data_dir = './../../data'
 
-# Number of workers for dataloader
-workers = 2
+# Root directory for saved models
+saved_models_dir = './../saved_models'
 
 # Batch size during training
-batch_size = 128
+batch_size = 1
 
 # Spatial size of training images. All images will be resized to this
 # size using a transformer.
-image_size = 64  # TODO: use 256
-
-# Number of channels in the training images. For color images this is 3
-nc = 3
-
-# Size of z latent vector (i.e. size of generator input)
-nz = 100
-
-# Size of feature maps in generator
-ngf = 64
-
-# Size of feature maps in discriminator
-ndf = 64
+image_size = 256
 
 # Number of training epochs
-num_epochs = 100
+num_epochs = 5
 
 # Learning rate for optimizers
-lr = 0.0002
+lr = {
+    'G': 0.0002,
+    'D': 0.0002
+}
 
 # Beta1 hyperparam for Adam optimizers
 beta1 = 0.5
 
 # Number of GPUs available. Use 0 for CPU mode.
-ngpu = 1
+ngpu = 0
+
+# Number of workers for dataloader
+workers = 4

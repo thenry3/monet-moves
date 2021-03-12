@@ -1,6 +1,11 @@
 data/
 env/
 
+models/*/saved_models
+models/*/results
+models/*/__pycache__
+models/*/utils/__pycache__
+
 MANIFEST
 build
 dist
