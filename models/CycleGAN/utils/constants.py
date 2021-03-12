@@ -1,5 +1,5 @@
 # Root directory for dataset
-dataroot = "./data"
+dataroot = "./../../data"
 
 # Number of workers for dataloader
 workers = 2
@@ -8,8 +8,8 @@ workers = 2
 batch_size = 128
 
 # Spatial size of training images. All images will be resized to this
-#   size using a transformer.
-image_size = 64
+# size using a transformer.
+image_size = 64  # TODO: use 256
 
 # Number of channels in the training images. For color images this is 3
 nc = 3
