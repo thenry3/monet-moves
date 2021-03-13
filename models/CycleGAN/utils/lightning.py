@@ -32,8 +32,10 @@ class LightningSystem(pl.LightningModule):
         self.identity = []
 
         self.num_epochs = num_epochs
-        self.f = open("./../losses.txt", "a")
+        self.f = open("./../losses.txt", "a+")
         self.f.write("Losses log for CycleGAN\n")
+        print("Losses log for CycleGAN\n")
+        self.f.flush()
 
     def configure_optimizers(self):
         self.g_basestyle_optimizer = optim.Adam(
@@ -83,12 +85,14 @@ class LightningSystem(pl.LightningModule):
             log_str = ('[%d/%d][%d] \tLoss_val: %.4f' %
                        (self.step, self.num_epochs, self.cnt_train_step, val_loss))
             self.f.write(f"{log_str}\n")
+            print(f"{log_str}\n")
             self.f.flush()
 
             # Write generator loss to log file
             log_str = ('[%d/%d][%d] \tLoss_G: %.4f' %
                        (self.step, self.num_epochs, self.cnt_train_step, G_loss))
             self.f.write(f"{log_str}\n")
+            print(f"{log_str}\n")
             self.f.flush()
 
             return {'loss': G_loss, 'validity': val_loss, 'reconstr': reconstr_loss, 'identity': id_loss}
@@ -114,6 +118,7 @@ class LightningSystem(pl.LightningModule):
             log_str = ('[%d/%d][%d]\tLoss_D: %.4f' %
                        (self.step, self.num_epochs, self.cnt_train_step, D_loss))
             self.f.write(f"{log_str}\n")
+            print(f"{log_str}\n")
             self.f.flush()
 
             # Count up
@@ -149,6 +154,7 @@ class LightningSystem(pl.LightningModule):
             self.step, self.num_epochs, avg_loss, G_mean_loss, D_mean_loss))
         print(log_str)
         self.f.write(f"{log_str}\n")
+        print(f"{log_str}\n")
         self.f.flush()
 
         if self.step % 10 == 0:
