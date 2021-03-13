@@ -12,7 +12,7 @@ batch_size = 1
 image_size = 256
 
 # Number of training epochs
-num_epochs = 150
+num_epochs = 2
 
 # Learning rate for optimizers
 lr = {
@@ -24,7 +24,7 @@ lr = {
 beta1 = 0.5
 
 # Number of GPUs available. Use 0 for CPU mode.
-ngpu = 0
+ngpu = 1
 
 # Number of workers for dataloader
 workers = 4
