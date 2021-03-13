@@ -1,0 +1,2 @@
+Losses log for VGG19
+Losses log for VGG19
