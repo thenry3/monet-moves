@@ -32,7 +32,7 @@ class LightningSystem(pl.LightningModule):
         self.identity = []
 
         self.num_epochs = num_epochs
-        self.f = open("./../losses.txt", "a+")
+        self.f = open("./losses.txt", "a+")
         self.f.write("Losses log for CycleGAN\n")
         print("Losses log for CycleGAN\n")
         self.f.flush()
