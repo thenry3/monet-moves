@@ -1,16 +1,6 @@
-Losses log for VGG19
-Losses log for VGG19
-Losses log for VGG19
-Losses log for VGG19
-Losses log for VGG19
-Losses log for VGG19
-Losses log for VGG19
-Losses log for VGG19
 Step [100]	 Batch loss: [15037965.0000]	 Perceptual: [15031291.0000]	 Content: [7514422.5000]	 Style: [7516868.5000]
 Step [200]	 Batch loss: [13055956.0000]	 Perceptual: [13047927.0000]	 Content: [7369106.0000]	 Style: [5678821.0000]
 Step [300]	 Batch loss: [12148550.0000]	 Perceptual: [12139769.0000]	 Content: [7400935.5000]	 Style: [4738833.5000]
-Losses log for VGG19
-Losses log for VGG19
 Step [100]	 Batch loss: [10347586.0000]	 Perceptual: [10337960.0000]	 Content: [6812576.0000]	 Style: [3525383.2500]
 Step [200]	 Batch loss: [9983158.0000]	 Perceptual: [9973300.0000]	 Content: [6749398.5000]	 Style: [3223900.7500]
 Step [300]	 Batch loss: [9890676.0000]	 Perceptual: [9880622.0000]	 Content: [6853495.0000]	 Style: [3027126.7500]
@@ -81,7 +71,6 @@ Step [6700]	 Batch loss: [8067078.0000]	 Perceptual: [8056647.0000]	 Content: [5
 Step [6800]	 Batch loss: [8054193.5000]	 Perceptual: [8043762.5000]	 Content: [5861684.5000]	 Style: [2182078.2500]
 Step [6900]	 Batch loss: [8037896.5000]	 Perceptual: [8027459.5000]	 Content: [5850880.5000]	 Style: [2176578.7500]
 Step [7000]	 Batch loss: [8025630.0000]	 Perceptual: [8015187.5000]	 Content: [5842012.5000]	 Style: [2173174.7500]
-Losses log for VGG19
 Step [100]	 Batch loss: [6953371.0000]	 Perceptual: [6942662.0000]	 Content: [5047110.0000]	 Style: [1895551.2500]
 Step [200]	 Batch loss: [6945949.0000]	 Perceptual: [6935245.0000]	 Content: [5041494.0000]	 Style: [1893751.8750]
 Step [300]	 Batch loss: [7044016.0000]	 Perceptual: [7033204.5000]	 Content: [5144966.5000]	 Style: [1888238.5000]
@@ -121,8 +110,6 @@ Step [3600]	 Batch loss: [6882738.0000]	 Perceptual: [6871663.5000]	 Content: [4
 Step [3700]	 Batch loss: [6871626.0000]	 Perceptual: [6860545.5000]	 Content: [4970567.5000]	 Style: [1889978.5000]
 Step [3800]	 Batch loss: [6866334.0000]	 Perceptual: [6855251.0000]	 Content: [4968282.0000]	 Style: [1886969.0000]
 Step [3900]	 Batch loss: [6849921.0000]	 Perceptual: [6838837.0000]	 Content: [4954097.0000]	 Style: [1884740.2500]
-Losses log for VGG19
-Losses log for VGG19
 Step [100]	 Batch loss: [6612992.0000]	 Perceptual: [6601788.0000]	 Content: [4748356.0000]	 Style: [1853432.1250]
 Step [200]	 Batch loss: [6555774.0000]	 Perceptual: [6544510.0000]	 Content: [4706671.5000]	 Style: [1837838.8750]
 Step [300]	 Batch loss: [6620205.0000]	 Perceptual: [6608822.0000]	 Content: [4785026.5000]	 Style: [1823795.6250]
@@ -193,6 +180,4 @@ Step [6700]	 Batch loss: [6269599.5000]	 Perceptual: [6257484.5000]	 Content: [4
 Step [6800]	 Batch loss: [6270663.5000]	 Perceptual: [6258544.0000]	 Content: [4466326.5000]	 Style: [1792218.0000]
 Step [6900]	 Batch loss: [6271051.0000]	 Perceptual: [6258921.5000]	 Content: [4467169.0000]	 Style: [1791752.5000]
 Step [7000]	 Batch loss: [6273456.5000]	 Perceptual: [6261315.5000]	 Content: [4467956.5000]	 Style: [1793359.1250]
-EPOCH [1/126]	 Batch loss: 6275746.0000	 Perceptual: 6263601.0000	 Content: 4469972.0000	 Style: 1793628.8750
-
-Losses log for VGG19
+EPOCH [1/126]	 Batch loss: [6275746.0000]	 Perceptual: [6263601.0000]	 Content: [4469972.0000]	 Style: [1793628.8750]
