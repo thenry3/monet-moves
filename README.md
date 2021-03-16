@@ -1,6 +1,6 @@
 # Monet Moves
 
-Andy Cai, Michael Inoue, Stephanie Doan, Henry Trinh
+Andy Cai, Stephanie Doan, Michael Inoue, Henry Trinh
 
 ## Overview
 
