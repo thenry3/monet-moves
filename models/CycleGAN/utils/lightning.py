@@ -8,12 +8,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class LightningSystem(pl.LightningModule):
-    def __init__(self, G_basestyle, G_stylebase, D_base, D_style, lr, transform, reconstr_w=10, id_w=2, num_epochs=1):
+    def __init__(self, G_base_to_style, G_style_to_base, D_base, D_style, lr, transform, reconstr_w=10, id_w=2, num_epochs=1):
         super(LightningSystem, self).__init__()
-        self.G_basestyle = G_basestyle
-        self.G_stylebase = G_stylebase
-        self.D_base = D_base
-        self.D_style = D_style
+
         self.lr = lr
         self.transform = transform
         self.reconstr_w = reconstr_w
@@ -21,15 +18,21 @@ class LightningSystem(pl.LightningModule):
         self.cnt_train_step = 0
         self.step = 0
 
-        self.mae = nn.L1Loss()
-        self.generator_loss = nn.MSELoss()
-        self.discriminator_loss = nn.MSELoss()
+        self.G_base_to_style = G_base_to_style
+        self.G_style_to_base = G_style_to_base
+        self.D_base = D_base
+        self.D_style = D_style
+
         self.losses = []
         self.G_mean_losses = []
         self.D_mean_losses = []
         self.validity = []
         self.reconstr = []
         self.identity = []
+
+        self.mae = nn.L1Loss()
+        self.generator_loss = nn.MSELoss()
+        self.discriminator_loss = nn.MSELoss()
 
         self.num_epochs = num_epochs
         self.f = open("./losses.txt", "a+")

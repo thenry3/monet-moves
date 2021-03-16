@@ -10764,3 +10764,9 @@ Losses log for CycleGAN
 Losses log for CycleGAN
 Losses log for CycleGAN
 Losses log for CycleGAN
+Losses log for CycleGAN
+Losses log for CycleGAN
+[0/1][0] 	Loss_val: 4.3718
+[0/1][0] 	Loss_G: 11.4430
+[0/1][0] 	Loss_val: 4.5825
+[0/1][0] 	Loss_G: 11.6112

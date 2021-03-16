@@ -63,11 +63,10 @@ class MonetDataModule(pl.LightningDataModule):
         self.phase = phase
         self.seed = seed
 
-    def prepare_data(self):
         self.base_img_paths = glob(
             os.path.join(self.data_dir, 'photo', '*.jpg'))
         self.style_img_paths = glob(
-            os.path.join(self.data_dir, 'monet', '*.jpg'))
+            os.path.join(self.data_dir, 'monet', 'monet_', '*.jpg'))
 
     def train_dataloader(self):
         random.seed()
@@ -80,6 +79,5 @@ class MonetDataModule(pl.LightningDataModule):
         return DataLoader(self.train_dataset,
                           batch_size=self.batch_size,
                           shuffle=True,
-                          num_workers=workers,
-                          pin_memory=True
-                          )
+                          pin_memory=True,
+                          num_workers=workers)
