@@ -1,4 +1,9 @@
 # Utility functions
+from PIL import Image
+import numpy as np
+import requests
+from io import BytesIO
+import matplotlib.pyplot as plt
 
 def load_image(image_path, dim=None, resize=False):
     img = Image.open(image_path)

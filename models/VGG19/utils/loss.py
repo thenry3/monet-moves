@@ -1,4 +1,5 @@
 # Loss functions
+import tensorflow as tf
 
 def content_loss(placeholder,content,weight):
     assert placeholder.shape == content.shape

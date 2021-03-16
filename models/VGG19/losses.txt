@@ -180,4 +180,6 @@ Step [6700]	 Batch loss: [6269599.5000]	 Perceptual: [6257484.5000]	 Content: [4
 Step [6800]	 Batch loss: [6270663.5000]	 Perceptual: [6258544.0000]	 Content: [4466326.5000]	 Style: [1792218.0000]
 Step [6900]	 Batch loss: [6271051.0000]	 Perceptual: [6258921.5000]	 Content: [4467169.0000]	 Style: [1791752.5000]
 Step [7000]	 Batch loss: [6273456.5000]	 Perceptual: [6261315.5000]	 Content: [4467956.5000]	 Style: [1793359.1250]
-EPOCH [1/126]	 Batch loss: [6275746.0000]	 Perceptual: [6263601.0000]	 Content: [4469972.0000]	 Style: [1793628.8750]
+EPOCH [1/126]	 Batch loss: [6275746.0000]	 Perceptual: [6263601.0000]	 Content: [4469972.0000]	 Style: [1793628.8750]Losses log for VGG19
+Losses log for VGG19
+Losses log for VGG19
