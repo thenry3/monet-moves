@@ -1,5 +1,9 @@
 # Monet Moves
 
+Andy Cai, Michael Inoue, Stephanie Doan, Henry Trinh
+
+## Overview
+
 We use three models for the tasks of art style transfer from Claude Monet's paintings to real photographs and artwork generation from existing artwork:
 1. [CycleGAN](https://arxiv.org/abs/1703.10593) based on [Pytorch implementation](https://www.kaggle.com/bootiu/cyclegan-pytorch-lightning/)
 2. [Neural style transfer](https://arxiv.org/pdf/1603.08155.pdf) featuring perceptual loss for art style transfer, based on [Keras implementation](https://www.kaggle.com/tarunbisht11/generate-art-using-fast-style-transfer-in-a-second)
