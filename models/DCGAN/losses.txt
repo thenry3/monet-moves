@@ -1002,3 +1002,4 @@ Starting Training Loop...
 [999/1000][0/3]	Loss_D: 0.0188	Loss_G: 5.4247	D(x): 0.9892	D(G(z)): 0.0079 / 0.0074Losses log for DCGAN
 [0/1000][0/3]	Loss_D: 0.0724	Loss_G: 8.0219	D(x): 0.9423	D(G(z)): 0.0009 / 0.0007
 [1/1000][0/3]	Loss_D: 0.3627	Loss_G: 7.5799	D(x): 0.8764	D(G(z)): 0.1434 / 0.0009
+Losses log for DCGAN
